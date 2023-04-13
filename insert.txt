@@ -1,0 +1,42 @@
+INSERT INTO `mydb`.`employee` (`employee_name`, `employee_login`, `employee_password`, `employee_role`) VALUES ('Королев Игорь Анатольевич', 'korolevigor', '12345igorek', 'Продавец');
+INSERT INTO `mydb`.`employee` (`employee_name`, `employee_login`, `employee_password`, `employee_role`) VALUES ('Рачев Руслан Игоревич', 'rouslan', '870125', 'Администратор');
+INSERT INTO `mydb`.`employee` (`employee_id`, `employee_name`, `employee_login`, `employee_password`, `employee_role`) VALUES ('3', 'Орлова Юлия Валерьевна', 'orlovaa', '412423', 'Продавец');
+INSERT INTO `mydb`.`employee` (`employee_id`, `employee_name`, `employee_login`, `employee_password`, `employee_role`) VALUES ('4', 'Волков Сергей Андреевич', 'volk473', '9993seriy', 'Продавец');
+INSERT INTO `mydb`.`employee` (`employee_id`, `employee_name`, `employee_login`, `employee_password`, `employee_role`) VALUES ('5', 'Иванова Ирина Сергеевна', 'ivanovai', 'ivan18325irina', 'Продавец');
+
+INSERT INTO `mydb`.`supplier` (`supplier_name`, `supplier_city`) VALUES ('ООО Техника-Дорого', 'Москва');
+INSERT INTO `mydb`.`supplier` (`supplier_name`, `supplier_city`) VALUES ('Лаборатория Компьютеров', 'Санкт-Петербург');
+INSERT INTO `mydb`.`supplier` (`supplier_name`, `supplier_city`) VALUES ('Cheap computers', 'Тверь');
+INSERT INTO `mydb`.`supplier` (`supplier_name`, `supplier_city`) VALUES ('АйТи Технологии', 'Пермь');
+INSERT INTO `mydb`.`supplier` (`supplier_name`, `supplier_city`) VALUES ('SunDzin Tech', 'Гуанчжоу');
+
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-03-28', '25', '700000', '5');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-05', '30', '210000', '1');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-05', '20', '200000', '1');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-02', '13', '1300000', '3');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-10', '40', '108000', '2');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-10', '20', '38000', '2');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-10', '35', '239750', '2');
+INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-21', '45', '346500', '4');
+
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('Palit GeForce RTX 3060 Dual OC', 'Видеокарта', '34399', '28000', '1');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('AMD Ryzen 5 3600 OEM', 'Процессор', '9799', '7000', '2');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('MSI MPG B550 GAMING PLUS', 'Материнская плата', '12999', '10000', '3');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('MSI GeForce RTX 4080 SUPRIM X', 'Видеокарта', '123599', '100000', '4');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('Kingston FURY Beast Black 16 ГБ', 'Оперативная память', '4499', '2700', '5');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('DEEPCOOL MATREXX 30', 'Корпус', '3099', '1900', '6');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('GIGABYTE B660M DS3H DDR4', 'Материнская плата', '8499', '6850', '7');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('DEEPCOOL DQ750', 'Блок питания', '9599', '7700', '8');
+
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-07', '4', '1', '1', '1');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-08', '7', '3', '3', '4');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-08', '8', '2', '2', '5');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-11', '5', '4', '4', '3');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-15', '10', '6', '6', '1');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-19', '2', '7', '7', '5');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-23', '9', '8', '8', '3');
+
+
+
+
+
