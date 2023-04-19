@@ -19,24 +19,106 @@ INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `sup
 INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-10', '35', '239750', '2');
 INSERT INTO `mydb`.`supply` (`supply_date`, `supply_count`, `supply_price`, `supplier_id`) VALUES ('2023-04-21', '45', '346500', '4');
 
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('Palit GeForce RTX 3060 Dual OC', 'Видеокарта', '34399', '28000', '1');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('AMD Ryzen 5 3600 OEM', 'Процессор', '9799', '7000', '2');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('MSI MPG B550 GAMING PLUS', 'Материнская плата', '12999', '10000', '3');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('MSI GeForce RTX 4080 SUPRIM X', 'Видеокарта', '123599', '100000', '4');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('Kingston FURY Beast Black 16 ГБ', 'Оперативная память', '4499', '2700', '5');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('DEEPCOOL MATREXX 30', 'Корпус', '3099', '1900', '6');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('GIGABYTE B660M DS3H DDR4', 'Материнская плата', '8499', '6850', '7');
-INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `product_purchase_price`, `supply_id`) VALUES ('DEEPCOOL DQ750', 'Блок питания', '9599', '7700', '8');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('Palit GeForce RTX 3060 Dual OC', 'Видеокарта', '34399', '1');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('AMD Ryzen 5 3600 OEM', 'Процессор', '9799', '2');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('MSI MPG B550 GAMING PLUS', 'Материнская плата', '12999', '3');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('MSI GeForce RTX 4080 SUPRIM X', 'Видеокарта', '123599', '4');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('Kingston FURY Beast Black 16 ГБ', 'Оперативная память', '4499', '5');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('DEEPCOOL MATREXX 30', 'Корпус', '3099', '6');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('GIGABYTE B660M DS3H DDR4', 'Материнская плата', '8499', '7');
+INSERT INTO `mydb`.`product` (`product_name`, `product_type`, `product_price`, `supply_id`) VALUES ('DEEPCOOL DQ750', 'Блок питания', '9599', '8');
 
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-07', '4', '1', '1', '1');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-08', '7', '3', '3', '4');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-08', '8', '2', '2', '5');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-11', '5', '4', '4', '3');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-15', '10', '6', '6', '1');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-19', '2', '7', '7', '5');
-INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `supply_id`, `employee_id`) VALUES ('2023-04-23', '9', '8', '8', '3');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-07', '4', '1', '1');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-08', '7', '3', '4');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-08', '8', '2', '5');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-11', '5', '4', '3');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-15', '10', '6', '1');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-19', '2', '7', '5');
+INSERT INTO `mydb`.`sale` (`sale_date`, `sale_count`, `product_id`, `employee_id`) VALUES ('2023-04-23', '9', '8', '3');
+
+use mydb;
+CREATE VIEW sales_report
+as SELECT 
+sale.sale_id as "Номер",
+sale.sale_date as "Дата",
+product.product_name as "Продукт",
+sale.sale_count as "Кол-во",
+product.product_price as "Цена",
+(sale.sale_count*product.product_price) as "Сумма",
+employee.employee_name as "Продавец"
+FROM sale 
+JOIN product ON sale.product_id = product.product_id
+JOIN employee ON sale.employee_id = employee.employee_id;
+
+use mydb;
+CREATE VIEW supplies_report
+as SELECT 
+supply.supply_id as "Номер",
+supply.supply_date as "Дата",
+product.product_name as "Продукт",
+supply.supply_count as "Кол-во",
+REPLACE(FORMAT((supply.supply_price/supply.supply_count), '######'), ",", "") as "Цена закупки",
+supply.supply_price as "Сумма",
+supplier.supplier_name as "Поставщик",
+supplier.supplier_city as "Город"
+FROM supply
+JOIN product ON supply.supply_id = product.supply_id
+JOIN supplier ON supply.supplier_id = supplier.supplier_id
+ORDER BY supply.supply_date;
+
+use mydb;
+CREATE VIEW products_report
+as SELECT 
+product.product_id as "Номер",
+product.product_name as "Продукт",
+product.product_type as "Тип",
+supplier.supplier_name as "Поставщик",
+supply.supply_date as "Дата поставки",
+supply.supply_count as "Кол-во",
+SUM(sale.sale_count) as "Продано",
+(supply.supply_count-SUM(sale.sale_count)) as "На складе"
+FROM product
+JOIN supply ON supply.supply_id = product.supply_id
+JOIN supplier ON supply.supplier_id = supplier.supplier_id
+JOIN sale ON sale.product_id = product.product_id
+GROUP BY product.product_id, supply.supply_id, supplier.supplier_id, sale.sale_id;
+
+use mydb;
+CREATE VIEW profits_report
+as SELECT 
+product.product_id as "Номер",
+product.product_name as "Продукт",
+product.product_type as "Тип",
+REPLACE(FORMAT((supply.supply_price/supply.supply_count), '######'), ",", "") as "Закупочная цена",
+product.product_price as "Розничная цена",
+SUM(sale.sale_count) as "Продано",
+(SUM(sale.sale_count)*product.product_price) as "Сумма продаж",
+(SUM(sale.sale_count)*(product.product_price-REPLACE(FORMAT((supply.supply_price/supply.supply_count), '######'), ",", ""))) as "Прибыль"
+FROM product
+JOIN supply ON supply.supply_id = product.supply_id
+JOIN supplier ON supply.supplier_id = supplier.supplier_id
+JOIN sale ON sale.product_id = product.product_id
+GROUP BY product.product_id, supply.supply_id, supplier.supplier_id, sale.sale_id;
 
 
-
-
-
+use mydb;
+#CREATE VIEW employees_report as 
+SELECT 
+abc.employee_id as "Номер",
+abc.employee_name as "ФИО",
+SUM(abc.summ_count) as "Кол-во продаж",
+SUM(abc.summ_price) as "Сумма продаж",
+SUM(abc.summ_profit) as "Заработал"
+from(
+SELECT 
+employee.employee_id,
+employee.employee_name,
+SUM(sale.sale_count) as summ_count,
+(SUM(sale.sale_count)*product.product_price) as summ_price,
+(SUM(sale.sale_count)*(product.product_price-REPLACE(FORMAT((supply.supply_price/supply.supply_count), '######'), ",", ""))) as summ_profit
+FROM employee
+JOIN sale ON sale.employee_id = employee.employee_id
+JOIN product ON sale.product_id = product.product_id
+JOIN supply ON supply.supply_id = product.supply_id
+GROUP BY product.product_id, sale.sale_id, supply.supply_id, supply.supply_price, supply.supply_count, employee.employee_id) as abc
+GROUP BY abc.employee_id;

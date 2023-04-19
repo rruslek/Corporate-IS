@@ -24,7 +24,7 @@ namespace PC_Master
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             if (loginInput.Text != "" && passwordInput.Text != "")
             {
@@ -88,32 +88,5 @@ namespace PC_Master
             else return true;
         }
 
-
-        private bool checkPassword1()
-        {
-            MySqlConnection conn = DBConnection.GetDBConnection();
-            conn.Open();
-
-            String sql = "SELECT COUNT(*) FROM employee WHERE (employee_login = '" + loginInput.Text + "' AND employee_password = '" + passwordInput.Text + "')";
-            MySqlCommand cmd = new MySqlCommand();
-
-            cmd.Connection = conn;
-            cmd.CommandText = sql;
-            object obj = cmd.ExecuteScalar();
-            if (Convert.ToInt32(obj) > 0)
-            {
-                conn.Close();
-                conn.Dispose();
-                return true;
-            }
-            else
-            {
-                conn.Close();
-                conn.Dispose();
-                return false;
-            }
-
-            
-        }
     }
 }

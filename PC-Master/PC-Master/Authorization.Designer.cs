@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.loginInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,17 +47,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Авторизация";
             // 
-            // button1
+            // loginButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(163, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "ВОЙТИ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.loginButton.BackColor = System.Drawing.Color.White;
+            this.loginButton.ForeColor = System.Drawing.Color.Black;
+            this.loginButton.Location = new System.Drawing.Point(163, 190);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(87, 29);
+            this.loginButton.TabIndex = 1;
+            this.loginButton.Text = "ВОЙТИ";
+            this.loginButton.UseVisualStyleBackColor = false;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // loginInput
             // 
@@ -107,7 +107,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.loginInput);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label1);
             this.Name = "Authorization";
             this.Text = "PC-Master";
@@ -119,7 +119,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.TextBox loginInput;
         private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Label label2;
